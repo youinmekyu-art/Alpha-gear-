@@ -1,0 +1,264 @@
+<!--
+Alpha Gear - Single-file responsive website
+Save this file as: index.html
+Open in browser to preview. (Works offline)
+
+What it includes:
+- Responsive header + hero
+- Product grid (sample items)
+- About, Services, Contact sections
+- Simple CSS, no external frameworks
+- Dark (black/red) Alpha Gear theme
+
+You can edit product names, images, prices directly in the HTML.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Alpha Gear — Gym & Fitness Store</title>
+  <meta name="description" content="Alpha Gear — Premium gym equipment, apparel & accessories">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#0f0f10;
+      --muted:#bdbdbd;
+      --accent:#ff2d2d;
+      --accent-2:#ff6b6b;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#050505 0%, #0b0b0b 100%);color:#eee}
+    a{color:inherit;text-decoration:none}
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15));border-bottom:1px solid rgba(255,255,255,0.03);z-index:40}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+
+    /* Header */
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:0.75rem;font-weight:800;letter-spacing:0.6px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#111;font-weight:900}
+    nav ul{display:flex;gap:1rem;align-items:center;margin:0;padding:0;list-style:none}
+    nav li{opacity:.9}
+    .btn{background:var(--accent);padding:.55rem .8rem;border-radius:10px;color:#111;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:2.2rem 0}
+    .hero-left h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 .6rem}
+    .lead{color:var(--muted);margin-bottom:1.2rem}
+    .cta-row{display:flex;gap:0.75rem}
+    .cta{padding:.65rem 1rem;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03)}
+
+    /* Product card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:1rem;border:1px solid rgba(255,255,255,0.03)}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+    .product{display:flex;flex-direction:column;gap:.6rem}
+    .product .img{height:160px;border-radius:10px;background:linear-gradient(180deg,#111,#0f0f10);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
+    .product h4{margin:0;font-size:1rem}
+    .price{font-weight:800;color:var(--accent)}
+    .meta{font-size:.85rem;color:var(--muted)}
+
+    /* About & contact */
+    section{padding:2rem 0}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:start}
+
+    footer{padding:1.6rem 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .product-grid{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .product-grid{grid-template-columns:1fr}
+      .logo{width:38px;height:38px}
+      .hero-left h1{font-size:1.6rem}
+    }
+
+    /* tiny helpers */
+    .muted{color:var(--muted)}
+    .pill{padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:700}
+    .socials{display:flex;gap:.6rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">AG</div>
+        <div>
+          <div style="font-size:.95rem">Alpha Gear</div>
+          <div style="font-size:.7rem;color:var(--muted);margin-top:2px">Gym Equipment & Apparel</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li class="muted">Home</li>
+          <li class="muted">Products</li>
+          <li class="muted">About</li>
+          <li class="muted">Contact</li>
+          <li><a href="#products" class="btn">Shop Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Alpha Gear — Premium Gym Equipment & Apparel</h1>
+        <p class="lead">Heavy-duty equipment, training essentials and style — curated for serious lifters and fitness pros. Local pickup & delivery available.</p>
+        <div class="cta-row">
+          <a class="btn" href="#products">Shop Bestsellers</a>
+          <a class="cta" href="#contact">Get a Quote</a>
+        </div>
+
+        <div style="margin-top:1.2rem;display:flex;gap:1rem;align-items:center">
+          <div class="pill">Fast Delivery</div>
+          <div class="pill">1 Year Warranty</div>
+          <div class="pill">Made for India</div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem">
+            <div>
+              <div style="font-weight:800">Bestseller</div>
+              <div class="muted" style="font-size:.85rem">Top selling: Adjustable Dumbbell Set</div>
+            </div>
+            <div class="price">₹3,999</div>
+          </div>
+
+          <div class="product-grid">
+            <div class="product">
+              <div class="img">Dumbbells</div>
+              <h4>Adjustable Dumbbells</h4>
+              <div class="meta">Compact, heavy-duty, rubber-coated</div>
+              <div class="price">₹3,999</div>
+            </div>
+            <div class="product">
+              <div class="img">Belts</div>
+              <h4>Powerlifting Belt</h4>
+              <div class="meta">Leather | Adjustable</div>
+              <div class="price">₹1,499</div>
+            </div>
+            <div class="product">
+              <div class="img">Bands</div>
+              <h4>Resistance Bands</h4>
+              <div class="meta">Set of 5 | Travel friendly</div>
+              <div class="price">₹799</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="products">
+      <h2 style="margin-bottom:.5rem">Featured Products</h2>
+      <p class="muted" style="margin-top:0;margin-bottom:1rem">High-quality equipment chosen by trainers.</p>
+
+      <div class="product-grid">
+        <div class="card product">
+          <div class="img">Barbell</div>
+          <h4>Olympic Barbell (20kg)</h4>
+          <div class="meta">Standard 2-inch sleeve | 7ft</div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><div class="price">₹6,499</div><button class="btn">Add</button></div>
+        </div>
+
+        <div class="card product">
+          <div class="img">Kettlebell</div>
+          <h4>Kettlebell (16kg)</h4>
+          <div class="meta">Cast iron | Powder coat</div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><div class="price">₹2,299</div><button class="btn">Add</button></div>
+        </div>
+
+        <div class="card product">
+          <div class="img">Ropes</div>
+          <h4>Battle Rope (15m)</h4>
+          <div class="meta">Durable nylon | Indoor/Outdoor</div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><div class="price">₹1,999</div><button class="btn">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="grid-2">
+        <div>
+          <h3>About Alpha Gear</h3>
+          <p class="muted">Alpha Gear started to bring strong, durable and affordable fitness products to local gyms and home lifters. We focus on product quality, quick service and customer trust.</p>
+
+          <ul style="margin-top:1rem;color:var(--muted)">
+            <li>OEM-tested equipment</li>
+            <li>Local service & support</li>
+            <li>Bulk order discounts</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <p class="muted">Assembly, installation and custom orders — we handle deliveries across your city. Want a branded set for your gym? Ask for a quote.</p>
+
+          <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+            <div class="pill">Custom Kits</div>
+            <div class="pill">Gym Setup</div>
+            <div class="pill">Trainer Discounts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact & Orders</h3>
+      <div class="grid-2" style="margin-top:1rem">
+        <div class="card">
+          <strong>Alpha Gear — Contact</strong>
+          <p class="muted" style="margin-top:.6rem">Call / WhatsApp: <strong>8431447971</strong></p>
+          <p class="muted">Email: <strong>alphagear@example.com</strong></p>
+          <p class="muted">Location: Your city, India — Local delivery available</p>
+
+          <div style="margin-top:1rem" class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+
+        <form class="card" onsubmit="event.preventDefault();alert('Thanks! We will contact you.');">
+          <label class="muted" style="font-size:.85rem">Name</label>
+          <input required style="width:100%;padding:.6rem;margin-top:.4rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+
+          <label class="muted" style="font-size:.85rem;margin-top:.6rem;display:block">Phone / WhatsApp</label>
+          <input required style="width:100%;padding:.6rem;margin-top:.4rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+
+          <label class="muted" style="font-size:.85rem;margin-top:.6rem;display:block">Message</label>
+          <textarea required style="width:100%;padding:.6rem;margin-top:.4rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-height:90px"></textarea>
+
+          <div style="margin-top:0.8rem;display:flex;justify-content:flex-end">
+            <button class="btn">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <strong>Alpha Gear</strong>
+        <div class="muted" style="font-size:.85rem;margin-top:6px">© Alpha Gear — All rights reserved</div>
+      </div>
+      <div class="muted">Made with ❤️ — Local Fitness Brand</div>
+    </div>
+  </footer>
+
+</body>
+</html>
